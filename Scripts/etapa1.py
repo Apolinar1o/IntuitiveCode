@@ -30,7 +30,8 @@ for link in link_achados:
     nomeArquivo = os.path.join("../anexos", link.split("/")[-1])
     with open(nomeArquivo, "wb") as pdf_file:
         pdf_file.write(resposta.content)
-    print("Download feito")
+        print("Download feito")
+
 
 
 zip_file_name = "../anexos/anexos_compactados.zip"
