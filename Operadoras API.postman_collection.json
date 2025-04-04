@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "ee5d825c-eaf7-4985-9959-49e91f778da0",
+		"name": "Operadoras API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26642440"
+	},
+	"item": [
+		{
+			"name": "intuitive",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/buscar?q=AFFIX ADMINISTRADORA DE BENEFÍCIOS LTDA",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"buscar"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "AFFIX ADMINISTRADORA DE BENEFÍCIOS LTDA"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

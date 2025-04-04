@@ -6,3 +6,10 @@ Este projeto tem como objetivo testar conhecimentos e fornecer **uma análise es
 - Web scraping com Python para obter documentos da ANS.
 - API de busca textual com **FastAPI**.
 - Interface de frontend usando **Vue.js**.
+
+cada pasta contem uma etapa do que foi pedido.
+
+👨‍💻 Autor
+Antônio Apolinário Gonzaga Neto
+Engenharia da Computação - UERJ
+GitHub: @aapolinario
