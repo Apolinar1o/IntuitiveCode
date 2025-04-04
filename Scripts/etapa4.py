@@ -1,24 +1,38 @@
 from fastapi import FastAPI, Query
+from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 
 app = FastAPI()
 
-# Carregar dados do CSV
-df = pd.read_csv("../arquivos/Relatorio_cadop.csv", delimiter=";", encoding="utf-8")
+# Configuração de CORS para permitir acesso de qualquer origem (*)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Pode substituir "*" por ["http://localhost:3000"] se quiser restringir ao seu frontend
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-# Limpeza de dados
-df["Nome_Fantasia"] = df["Nome_Fantasia"].fillna("")  # Preencher NaN com string vazia
-df["Nome_Fantasia"] = df["Nome_Fantasia"].astype(str).str.strip().str.lower()  # Normalizar texto
+# Carregar dados do CSV
+df = pd.read_csv("../arquivos/Relatorio_cadop1.csv", delimiter=";", encoding="utf-8")
+
+# Normalizar texto
+df = df.fillna("")
+df["Razao_Social"] = df["Razao_Social"].str.strip().str.lower()
+
 
 @app.get("/buscar")
 def buscar_operadora(q: str = Query(..., min_length=1)):
-    print(q)
     q = q.strip().lower()
-    print(df["Nome_Fantasia"].str.contains(q, case=False, na=False))
-    resultados = df[df["Nome_Fantasia"].str.contains(q, case=False, na=False)]
-    print("11111111111111111111111111 ", resultados)
+    resultados = df[df["Razao_Social"].str.contains(q, case=False, na=False)].fillna("")
+
+    if resultados.empty:
+        return {"message": "Nenhuma operadora encontrada."}
+
     return resultados.to_dict(orient="records")
+
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="127.0.0.1", port=8080)
