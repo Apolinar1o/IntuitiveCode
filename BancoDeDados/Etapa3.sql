@@ -44,7 +44,7 @@ select * from demonstracoes_contabeis;
 
 SET SQL_SAFE_UPDATES = 0;
 
-
+-- Carregando os dados do arquivo CSV para a tabela 'operadoras'
 LOAD DATA LOCAL INFILE 'C:/Users/aapol/OneDrive/Documentos/GitHub/IntuitiveCode/arquivos/Relatorio_cadop.csv'
 INTO TABLE operadoras
 FIELDS TERMINATED BY ';'
@@ -58,7 +58,7 @@ IGNORE 1 ROWS
 LOAD DATA LOCAL INFILE 'C:/Users/aapol/OneDrive/Documentos/GitHub/IntuitiveCode/arquivos/2023/1T2023.csv'
 INTO TABLE demonstracoes_contabeis
 FIELDS TERMINATED BY ';'
-ENCLOSED BY '"' -- isso resolve os campos com aspas duplas
+ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (data_registro, registro_ans, codigo_conta, descricao, saldo_inicial, saldo_final);
@@ -67,7 +67,7 @@ IGNORE 1 ROWS
 LOAD DATA LOCAL INFILE 'C:/Users/aapol/OneDrive/Documentos/GitHub/IntuitiveCode/arquivos/2023/2T2023.csv'
 INTO TABLE demonstracoes_contabeis
 FIELDS TERMINATED BY ';'
-ENCLOSED BY '"' -- isso resolve os campos com aspas duplas
+ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (data_registro, registro_ans, codigo_conta, descricao, saldo_inicial, saldo_final);
@@ -75,7 +75,7 @@ IGNORE 1 ROWS
 LOAD DATA LOCAL INFILE 'C:/Users/aapol/OneDrive/Documentos/GitHub/IntuitiveCode/arquivos/2023/3T2023.csv'
 INTO TABLE demonstracoes_contabeis
 FIELDS TERMINATED BY ';'
-ENCLOSED BY '"' -- isso resolve os campos com aspas duplas
+ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (data_registro, registro_ans, codigo_conta, descricao, saldo_inicial, saldo_final);
@@ -83,7 +83,7 @@ IGNORE 1 ROWS
 LOAD DATA LOCAL INFILE 'C:/Users/aapol/OneDrive/Documentos/GitHub/IntuitiveCode/arquivos/2023/4T2023.csv'
 INTO TABLE demonstracoes_contabeis
 FIELDS TERMINATED BY ';'
-ENCLOSED BY '"' -- isso resolve os campos com aspas duplas
+ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (data_registro, registro_ans, codigo_conta, descricao, saldo_inicial, saldo_final);
@@ -91,7 +91,7 @@ IGNORE 1 ROWS
 LOAD DATA LOCAL INFILE 'C:/Users/aapol/OneDrive/Documentos/GitHub/IntuitiveCode/arquivos/2024/1T2024.csv'
 INTO TABLE demonstracoes_contabeis
 FIELDS TERMINATED BY ';'
-ENCLOSED BY '"' -- isso resolve os campos com aspas duplas
+ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (data_registro, registro_ans, codigo_conta, descricao, saldo_inicial, saldo_final);
@@ -99,7 +99,7 @@ IGNORE 1 ROWS
 LOAD DATA LOCAL INFILE 'C:/Users/aapol/OneDrive/Documentos/GitHub/IntuitiveCode/arquivos/2024/2T2024.csv'
 INTO TABLE demonstracoes_contabeis
 FIELDS TERMINATED BY ';'
-ENCLOSED BY '"' -- isso resolve os campos com aspas duplas
+ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (data_registro, registro_ans, codigo_conta, descricao, saldo_inicial, saldo_final);
@@ -107,7 +107,7 @@ IGNORE 1 ROWS
 LOAD DATA LOCAL INFILE 'C:/Users/aapol/OneDrive/Documentos/GitHub/IntuitiveCode/arquivos/2024/3T2024.csv'
 INTO TABLE demonstracoes_contabeis
 FIELDS TERMINATED BY ';'
-ENCLOSED BY '"' -- isso resolve os campos com aspas duplas
+ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (data_registro, registro_ans, codigo_conta, descricao, saldo_inicial, saldo_final);
@@ -115,7 +115,7 @@ IGNORE 1 ROWS
 LOAD DATA LOCAL INFILE 'C:/Users/aapol/OneDrive/Documentos/GitHub/IntuitiveCode/arquivos/2024/4T2024.csv'
 INTO TABLE demonstracoes_contabeis
 FIELDS TERMINATED BY ';'
-ENCLOSED BY '"' -- isso resolve os campos com aspas duplas
+ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (data_registro, registro_ans, codigo_conta, descricao, saldo_inicial, saldo_final);

@@ -14,7 +14,7 @@ app.add_middleware(
 )
 
 # Carregar dados do CSV
-df = pd.read_csv("../arquivos/Relatorio_cadop1.csv", delimiter=";", encoding="utf-8")
+df = pd.read_csv("../../arquivos/Relatorio_cadop.csv", delimiter=";", encoding="utf-8")
 
 # Normalizar texto
 df = df.fillna("")
