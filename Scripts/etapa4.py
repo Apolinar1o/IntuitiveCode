@@ -1,39 +1,24 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
+from fastapi import FastAPI, Query
 import pandas as pd
-from typing import List
 
-# Inicializando o FastAPI
 app = FastAPI()
 
-# Carregando o CSV para o Pandas
-# Você pode atualizar o caminho do arquivo conforme necessário
-df_operadoras = pd.read_csv('../arquivos/Relatorio_cadop.csv', delimiter=';', encoding='utf-8')
+# Carregar dados do CSV
+df = pd.read_csv("../arquivos/Relatorio_cadop.csv", delimiter=";", encoding="utf-8")
 
+# Limpeza de dados
+df["Nome_Fantasia"] = df["Nome_Fantasia"].fillna("")  # Preencher NaN com string vazia
+df["Nome_Fantasia"] = df["Nome_Fantasia"].astype(str).str.strip().str.lower()  # Normalizar texto
 
-# Definindo um modelo de dados para a busca
-class BuscaRequest(BaseModel):
-    termo: str
-
-
-@app.get("/")
-def read_root():
-    return {"message": "API para busca de operadoras"}
-
-
-@app.post("/buscar")
-def buscar_operadoras(request: BuscaRequest):
-    termo = request.termo.lower()
-
-    # Realiza a busca no DataFrame e retorna as operadoras relevantes
-    resultado = df_operadoras[df_operadoras['razao_social'].str.contains(termo, case=False, na=False)]
-
-    # Retorna os 10 primeiros resultados
-    return {
-        "resultados": resultado[['razao_social', 'registro_ans', 'cidade', 'uf']].head(10).to_dict(orient='records')}
-
+@app.get("/buscar")
+def buscar_operadora(q: str = Query(..., min_length=1)):
+    print(q)
+    q = q.strip().lower()
+    print(df["Nome_Fantasia"].str.contains(q, case=False, na=False))
+    resultados = df[df["Nome_Fantasia"].str.contains(q, case=False, na=False)]
+    print("11111111111111111111111111 ", resultados)
+    return resultados.to_dict(orient="records")
 
 if __name__ == "__main__":
     import uvicorn
-
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8080)
