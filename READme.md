@@ -12,4 +12,3 @@ cada pasta contem uma etapa do que foi pedido.
 👨‍💻 Autor
 Antônio Apolinário Gonzaga Neto
 Engenharia da Computação - UERJ
-GitHub: @aapolinario
